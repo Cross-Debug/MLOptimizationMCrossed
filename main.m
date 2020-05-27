@@ -1,4 +1,4 @@
-% Each car is 1 vertical vector
+% Each car is 1 vertical vector. Accompnaying dataset is D_mpg.mat. Thank you to Statlib at the Carnegie Mellon University for the data.
 % 6 parameters (Rows 1-6 are parameters of the vehicle.)
 % This is a model that predicts fuel economy.
 
