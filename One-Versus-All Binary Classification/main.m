@@ -11,7 +11,7 @@ Xtr3 = X3(:,1:35);
 Xte3 = X3(:,36:50);
 
 % Begin tr data
-k = 5
+k = 3
 
 % Classification 1
 trainxp = [ Xtr1 Xtr2 Xtr3 ];
@@ -52,29 +52,29 @@ classification = testxp' * what;
 C3 = zeros(3,3);
 for k=1:15
     if classification(k,1) > classification(k,2)
-        C3 = C3 + [ 1 0 0; 0 0 0;0 0 0];
+        C3 = C3 + [ 1 0 0; 0 0 0; 0 0 0];
     elseif classification(k,2) > classification(k,3)
-        C3 = C3 + [ 0 1 0; 0 0 0;0 0 0];
+        C3 = C3 + [ 0 0 0; 1 0 0; 0 0 0];
     else
-        C3 = C3 + [ 0 0 1; 0 0 0;0 0 0];
+        C3 = C3 + [ 0 0 0; 0 0 0; 1 0 0];
     end
 end
-for k=15:30
+for k=16:30 % Careful, is 16.
     if classification(k,1) > classification(k,2)
-        C3 = C3 + [ 0 0 0; 1 0 0;0 0 0];
+        C3 = C3 + [ 0 1 0; 0 0 0; 0 0 0];
     elseif classification(k,2) > classification(k,3)
-        C3 = C3 + [ 0 0 0; 0 1 0;0 0 0];
+        C3 = C3 + [ 0 0 0; 0 1 0; 0 0 0];
     else
-        C3 = C3 + [ 0 0 0; 0 0 1;0 0 0];
+        C3 = C3 + [ 0 0 0; 0 0 0 ; 0 1 0];
     end
 end
-for k=30:45
+for k=31:45
     if classification(k,1) > classification(k,2)
-        C3 = C3 + [ 0 0 0; 0 0 0;1 0 0];
+        C3 = C3 + [ 0 0 1; 0 0 0; 0 0 0];
     elseif classification(k,2) > classification(k,3)
-        C3 = C3 + [ 0 0 0; 0 0 0;0 1 0];
+        C3 = C3 + [ 0 0 0; 0 0 1; 0 0 0];
     else
-        C3 = C3 + [ 0 0 0; 0 0 0;0 0 1];
+        C3 = C3 + [ 0 0 0; 0 0 0 ; 0 0 1];
     end
 end
 
@@ -89,33 +89,32 @@ classificationt = trainxp' * what;
 Ct = zeros(3,3);
 for k=1:35
     if classificationt(k,1) > classificationt(k,2)
-        Ct = Ct + [ 1 0 0; 0 0 0;0 0 0];
+        Ct = Ct + [ 1 0 0; 0 0 0; 0 0 0];
     elseif classificationt(k,2) > classificationt(k,3)
-        Ct = Ct + [ 0 1 0; 0 0 0;0 0 0];
+        Ct = Ct + [ 0 0 0; 1 0 0; 0 0 0];
     else
-        Ct = Ct + [ 0 0 1; 0 0 0;0 0 0];
+        Ct = Ct + [ 0 0 0; 0 0 0 ; 1 0 0];
     end
 end
 for k=36:70
     if classificationt(k,1) > classificationt(k,2)
-        Ct = Ct + [ 0 0 0; 1 0 0;0 0 0];
+        Ct = Ct + [ 0 1 0; 0 0 0; 0 0 0];
     elseif classificationt(k,2) > classificationt(k,3)
-        Ct = Ct + [ 0 0 0; 0 1 0;0 0 0];
+        Ct = Ct + [ 0 0 0; 0 1 0; 0 0 0];
     else
-        Ct = Ct + [ 0 0 0; 0 0 1;0 0 0];
+        Ct = Ct + [ 0 0 0; 0 0 0 ; 0 1 0];
     end
 end
 for k=71:105
     if classificationt(k,1) > classificationt(k,2)
-        Ct = Ct + [ 0 0 0; 0 0 0;1 0 0];
+        Ct = Ct + [ 0 0 1; 0 0 0; 0 0 0];
     elseif classificationt(k,2) > classificationt(k,3)
-        Ct = Ct + [ 0 0 0; 0 0 0;0 1 0];
+        Ct = Ct + [ 0 0 0; 0 0 1; 0 0 0];
     else
-        Ct = Ct + [ 0 0 0; 0 0 0;0 0 1];
+        Ct = Ct + [ 0 0 0; 0 0 0 ; 0 0 1];
     end
 end
 
 sumCii = sum(diag(Ct)); % This reuses variables
 sumCij = sum(Ct,'All');
 classification_accuracy_train = sumCii/sumCij*100
-
