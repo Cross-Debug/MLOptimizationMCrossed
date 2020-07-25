@@ -10,7 +10,7 @@ mu = [-1 2; 3 0];
 % Parameters
 K = 2;
 Dlength = length(D);
-muheight = size(mu,1)
+muheight = size(mu,1);
 r = zeros(Dlength,K);
 distR = zeros(Dlength,K);
 t = 2; % How many iterations you want.
