@@ -1,5 +1,7 @@
-# MLOptimizationMCrossed
-Optimization via Machine Learning
+**Optimization via Machine Learning**<br/>
 
-Algorithms programmed for machine learning via optimization. Completed as requirements for ECE 403/503 at the University of Victoria.
-I thank Dr. Lu of UVic’s Electrical and Computer Department for some of his provided supporting functions.
+Completed as requirements for ECE 403/503 - Optimization via Machine Learning at the University of Victoria.<br/>
+I thank Dr. Lu of UVic’s Electrical and Computer Department for some of his provided supporting functions.<br/>
+
+Algorithms:<br/>
+K-Means Clustering, Binary Logistic Regression, Least Squares Linear Regression, One Vs All Binary Classification.<br/>
